@@ -35,12 +35,12 @@ namespace PeriodicTable.Application.Services
 		{
 			await ValidationHelper.ValidateObjects(request);
 
-			if (!await _elementsRepository.ExistsAsync(request.Id))
+			if (!await _elementsRepository.ExistsAsync(request.Id.Value))
 			{
-				throw new ElementNotFoundException(request.Id);
+				throw new ElementNotFoundException(request.Id.Value);
 			}
 
-			await _elementsRepository.DeleteAsync(request.Id);
+			await _elementsRepository.DeleteAsync(request.Id.Value);
 		}
 
 		public async Task<IEnumerable<ElementResponse>> GetAllElementsAsync()
