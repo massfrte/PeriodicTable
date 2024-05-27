@@ -2,14 +2,14 @@
 {
 	public interface IRepository<TEntity, TKey>
 	{
-		Task<TEntity> GetById(TKey key);
+		Task<TEntity?> GetByIdAsync(TKey key);
 
-		Task<IEnumerable<TEntity>> GetAll();
+		Task<IEnumerable<TEntity>> GetAllAsync();
 
-		Task Add(TEntity item);
+		Task AddAsync(TEntity item);
 
-		Task Update(TKey key, TEntity item);
+		Task UpdateAsync(TKey key, TEntity item);
 
-		Task Delete(TKey key);
+		Task DeleteAsync(TKey key);
 	}
 }

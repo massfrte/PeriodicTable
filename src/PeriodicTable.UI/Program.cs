@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
+using PeriodicTable.Domain.RepositoryContracts;
 using PeriodicTable.Infrastructure.Database;
+using PeriodicTable.Infrastructure.Repositories;
 
 namespace PeriodicTable.UI
 {
@@ -16,6 +18,8 @@ namespace PeriodicTable.UI
 			{
 				options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 			});
+
+			builder.Services.AddScoped<IElementsRepository, ElementsRepository>();
 
 			var app = builder.Build();
 
