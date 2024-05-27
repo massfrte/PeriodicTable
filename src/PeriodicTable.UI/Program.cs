@@ -1,4 +1,6 @@
 using Microsoft.EntityFrameworkCore;
+using PeriodicTable.Application.ServiceContracts;
+using PeriodicTable.Application.Services;
 using PeriodicTable.Domain.RepositoryContracts;
 using PeriodicTable.Infrastructure.Database;
 using PeriodicTable.Infrastructure.Repositories;
@@ -20,6 +22,7 @@ namespace PeriodicTable.UI
 			});
 
 			builder.Services.AddScoped<IElementsRepository, ElementsRepository>();
+			builder.Services.AddScoped<IElementsService, ElementsService>();
 
 			var app = builder.Build();
 

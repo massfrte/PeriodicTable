@@ -6,6 +6,8 @@
 
 		Task<IEnumerable<TEntity>> GetAllAsync();
 
+		Task<bool> ExistsAsync(TKey key);
+
 		Task AddAsync(TEntity item);
 
 		Task UpdateAsync(TKey key, TEntity item);

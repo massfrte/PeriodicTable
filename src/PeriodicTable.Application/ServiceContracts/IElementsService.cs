@@ -13,7 +13,7 @@ namespace PeriodicTable.Application.ServiceContracts
 
 		Task DeleteElementAsync(ElementRemoveRequest? request);
 
-		Task UpdateElementAsync(ElementUpdateRequest? request);
+		Task UpdateElementAsync(Guid? id, ElementUpdateRequest? request);
 
 		Task<IEnumerable<ElementResponse>> SearchBySymbolAsync(string? symbol);
 

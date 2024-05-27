@@ -27,6 +27,11 @@ namespace PeriodicTable.Infrastructure.Repositories
 			_dbContext.ChemicalElements.Remove(found);
 		}
 
+		public async Task<bool> ExistsAsync(Guid key)
+		{
+			return (await _dbContext.ChemicalElements.FindAsync(key)) is not null;
+		}
+
 		public async Task<IEnumerable<ChemicalElement>> GetAllAsync()
 		{
 			return await _dbContext.ChemicalElements.ToListAsync();

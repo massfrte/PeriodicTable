@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PeriodicTable.Application.DTO.Response
+﻿namespace PeriodicTable.Application.DTO.Response
 {
 	public class ElementResponse
 	{
