@@ -5,7 +5,6 @@ using PeriodicTable.Application.ServiceContracts;
 using PeriodicTable.Application.Services.Helpers;
 using PeriodicTable.Application.Services.Mappers;
 using PeriodicTable.Domain.RepositoryContracts;
-using System.Xml.Linq;
 
 namespace PeriodicTable.Application.Services
 {
