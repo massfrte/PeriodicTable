@@ -25,7 +25,7 @@ namespace PeriodicTable.Domain.Entities
 
 		public float MeltingPointInK { get; set; }
 
-		public float BoilingPointInk { get; set; }
+		public float BoilingPointInK { get; set; }
 
 		public short YearDiscovered { get; set; }
 	}

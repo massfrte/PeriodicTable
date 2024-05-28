@@ -66,7 +66,10 @@ namespace PeriodicTable.Application.Services
 
 		public async Task<IEnumerable<ElementResponse>> SearchByNameAsync(string? name)
 		{
-			await ValidationHelper.ValidateObjects(name);
+			if (name is null)
+			{
+				name = string.Empty;
+			}
 
 			var elements = await _elementsRepository.SearchBy(x => x.Name.Contains(name));
 

@@ -32,7 +32,7 @@ namespace PeriodicTable.Application.DTO.Request
 		public float MeltingPointInK { get; set; }
 
 		[Required]
-		public float BoilingPointInk { get; set; }
+		public float BoilingPointInK { get; set; }
 
 		[Required]
 		[Range(0, 2024)]

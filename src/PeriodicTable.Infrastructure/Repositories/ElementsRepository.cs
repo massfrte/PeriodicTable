@@ -2,6 +2,7 @@
 using PeriodicTable.Domain.Entities;
 using PeriodicTable.Domain.RepositoryContracts;
 using PeriodicTable.Infrastructure.Database;
+using System.Linq.Expressions;
 
 namespace PeriodicTable.Infrastructure.Repositories
 {
@@ -25,6 +26,7 @@ namespace PeriodicTable.Infrastructure.Repositories
 			var found = await GetByIdAsync(key);
 
 			_dbContext.ChemicalElements.Remove(found);
+			await _dbContext.SaveChangesAsync();	
 		}
 
 		public async Task<bool> ExistsAsync(Guid key)
@@ -42,9 +44,9 @@ namespace PeriodicTable.Infrastructure.Repositories
 			return await _dbContext.ChemicalElements.FindAsync(key);
 		}
 
-		public async Task<IEnumerable<ChemicalElement>> SearchBy(Predicate<ChemicalElement> predicate)
+		public async Task<IEnumerable<ChemicalElement>> SearchBy(Expression<Func<ChemicalElement, bool>> predicate)
 		{
-			return await _dbContext.ChemicalElements.Where(element => predicate(element)).ToListAsync();
+			return await _dbContext.ChemicalElements.Where(predicate).ToListAsync();
 		}
 
 		public async Task UpdateAsync(Guid key, ChemicalElement item)

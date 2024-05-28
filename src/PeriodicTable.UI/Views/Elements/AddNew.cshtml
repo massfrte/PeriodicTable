@@ -1,0 +1,57 @@
+﻿@using PeriodicTable.Application.DTO.Request
+@model ElementAddRequest
+
+<div class="container mt-5">
+	<h2>
+		Add new element
+	</h2>
+
+    <form asp-controller="Elements" asp-action="AddNew" method="post">
+        <div class="mb-1 mt-3">
+            <label for="symbol" class="form-label">Symbol:</label>
+            <input asp-for="Symbol" type="text" class="form-control mb-2" id="symbol" placeholder="Enter symbol" name="Symbol">
+            <span class="text-danger" asp-validation-for="Symbol"></span>
+        </div>
+        <div class="mb-1">
+            <label for="name" class="form-label">Name:</label>
+            <input asp-for="Name" type="text" class="form-control mb-2" id="name" placeholder="Enter name" name="Name">
+            <span class="text-danger" asp-validation-for="Name"></span>
+        </div>
+        <div class="mb-1">
+            <label for="group" class="form-label">Group:</label>
+            <input asp-for="Group" type="text" class="form-control mb-2" id="group" placeholder="Enter group" name="Group">
+            <span class="text-danger" asp-validation-for="Group"></span>
+        </div>
+        <div class="mb-3">
+            <label for="standartState" class="form-label">Standart State:</label>
+            <input asp-for="StandartState" type="text" class="form-control mb-2" id="standartState" placeholder="Enter standart state" name="StandartState">
+            <span class="text-danger" asp-validation-for="StandartState"></span>
+        </div>
+        <div class="mb-3">
+            <label for="atomicNumber" class="form-label">Atomic Number:</label>
+            <input asp-for="AtomicNumber" type="number" class="form-control mb-2" id="atomicNumber" placeholder="Enter atomic number" name="AtomicNumber">
+            <span class="text-danger" asp-validation-for="AtomicNumber"></span>
+        </div>
+        <div class="mb-3">
+            <label for="electronegativity" class="form-label">Electronegativity:</label>
+            <input asp-for="Electronegativity" type="text" class="form-control mb-2" id="electronegativity" placeholder="Enter electronegativity" name="Electronegativity">
+            <span class="text-danger" asp-validation-for="Electronegativity"></span>
+        </div>
+        <div class="mb-3">
+            <label for="meltingPointInK" class="form-label">Melting Point(In K):</label>
+            <input asp-for="MeltingPointInK" type="text" class="form-control mb-2" id="meltingPointInK" placeholder="Enter melting point" name="MeltingPointInK">
+            <span class="text-danger" asp-validation-for="MeltingPointInK"></span>
+        </div>
+        <div class="mb-3">
+            <label for="boilingPointInK" class="form-label">Boiling Point(In K):</label>
+            <input asp-for="BoilingPointInK" type="text" class="form-control mb-2" id="boilingPointInK" placeholder="Enter boiling point" name="BoilingPointInK">
+            <span class="text-danger" asp-validation-for="BoilingPointInK"></span>
+        </div>
+        <div class="mb-3">
+            <label for="yearDiscovered" class="form-label">Discovered in:</label>
+            <input asp-for="YearDiscovered" type="number" class="form-control mb-2" id="yearDiscovered" placeholder="Enter the year" name="YearDiscovered">
+            <span class="text-danger" asp-validation-for="YearDiscovered"></span>
+        </div>
+        <button type="submit" class="btn btn-primary mb-5">Submit</button>
+    </form>
+</div>
