@@ -5,6 +5,7 @@ using PeriodicTable.Application.ServiceContracts;
 using PeriodicTable.Application.Services.Helpers;
 using PeriodicTable.Application.Services.Mappers;
 using PeriodicTable.Domain.RepositoryContracts;
+using System.Xml.Linq;
 
 namespace PeriodicTable.Application.Services
 {
@@ -63,7 +64,19 @@ namespace PeriodicTable.Application.Services
 			return _elementMapper.ToResponse(element);
 		}
 
-		public async Task<IEnumerable<ElementResponse>> SearchByNameAsync(string? name)
+        public async Task<IEnumerable<ElementResponse>> SearchByGroupAsync(string? group)
+        {
+            if (group is null)
+            {
+                group = string.Empty;
+            }
+
+            var elements = await _elementsRepository.SearchBy(x => x.Group.Contains(group));
+
+            return _elementMapper.ToResponse(elements);
+        }
+
+        public async Task<IEnumerable<ElementResponse>> SearchByNameAsync(string? name)
 		{
 			if (name is null)
 			{
@@ -77,9 +90,12 @@ namespace PeriodicTable.Application.Services
 
 		public async Task<IEnumerable<ElementResponse>> SearchBySymbolAsync(string? symbol)
 		{
-			await ValidationHelper.ValidateObjects(symbol);
+            if (symbol is null)
+            {
+                symbol = string.Empty;
+            }
 
-			var elements = await _elementsRepository.SearchBy(x => x.Symbol.Contains(symbol));
+            var elements = await _elementsRepository.SearchBy(x => x.Symbol.Contains(symbol));
 
 			return _elementMapper.ToResponse(elements);
 		}

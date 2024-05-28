@@ -24,9 +24,8 @@ namespace PeriodicTable.Application.DTO.Request
 		[Range(1, int.MaxValue)]
 		public int AtomicNumber { get; set; }
 
-		[Required]
 		[Range(0, float.MaxValue)]
-		public float Electronegativity { get; set; }
+		public float? Electronegativity { get; set; }
 
 		[Required]
 		public float MeltingPointInK { get; set; }
@@ -34,8 +33,7 @@ namespace PeriodicTable.Application.DTO.Request
 		[Required]
 		public float BoilingPointInK { get; set; }
 
-		[Required]
 		[Range(0, 2024)]
-		public short YearDiscovered { get; set; }
+		public short? YearDiscovered { get; set; }
 	}
 }

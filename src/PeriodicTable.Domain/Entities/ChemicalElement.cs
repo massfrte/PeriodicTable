@@ -21,12 +21,12 @@ namespace PeriodicTable.Domain.Entities
 
 		public int AtomicNumber { get; set; }
 
-		public float Electronegativity { get; set; }
+		public float? Electronegativity { get; set; }
 
 		public float MeltingPointInK { get; set; }
 
 		public float BoilingPointInK { get; set; }
 
-		public short YearDiscovered { get; set; }
+		public short? YearDiscovered { get; set; }
 	}
 }

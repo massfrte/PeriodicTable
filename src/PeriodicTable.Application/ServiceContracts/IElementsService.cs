@@ -15,7 +15,9 @@ namespace PeriodicTable.Application.ServiceContracts
 
 		Task UpdateElementAsync(Guid? id, ElementUpdateRequest? request);
 
-		Task<IEnumerable<ElementResponse>> SearchBySymbolAsync(string? symbol);
+        Task<IEnumerable<ElementResponse>> SearchByGroupAsync(string? group);
+
+        Task<IEnumerable<ElementResponse>> SearchBySymbolAsync(string? symbol);
 
 		Task<IEnumerable<ElementResponse>> SearchByNameAsync(string? name);
 	}

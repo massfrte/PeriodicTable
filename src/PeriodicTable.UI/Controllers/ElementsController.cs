@@ -21,12 +21,24 @@ namespace PeriodicTable.UI.Controllers
 		}
 
         [HttpPost("[action]")]
-        public async Task<IActionResult> SearchByName(string? name)
+        public async Task<IActionResult> SearchByName(string? value)
         {
-            return View(nameof(All), await _elementsService.SearchByNameAsync(name));
+            return View(nameof(All), await _elementsService.SearchByNameAsync(value));
         }
 
-		[HttpPost("[action]")]
+        [HttpPost("[action]")]
+        public async Task<IActionResult> SearchBySymbol(string? value)
+        {
+            return View(nameof(All), await _elementsService.SearchBySymbolAsync(value));
+        }
+
+        [HttpPost("[action]")]
+        public async Task<IActionResult> SearchByGroup(string? value)
+        {
+            return View(nameof(All), await _elementsService.SearchByGroupAsync(value));
+        }
+
+        [HttpPost("[action]")]
 		public async Task<IActionResult> Delete(Guid? id)
 		{
 			await _elementsService.DeleteElementAsync(new ElementRemoveRequest() { Id = id });
