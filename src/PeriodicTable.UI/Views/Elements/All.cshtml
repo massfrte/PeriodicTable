@@ -9,9 +9,9 @@
 
 <body>
 
-    <div class="container-fluid mt-2">
+    <div class="">
         <table class="table table-striped table-hover table-responsive">
-            <thead class="thead-dark">
+            <thead class="table-dark">
                 <tr>
                     <th scope="col">№</th>
                     <th scope="col">Atomic Number</th>
@@ -93,7 +93,7 @@
                         <td>@element.StandartState</td>
                         @if (element.Electronegativity is null)
                         {
-                            <td class="text-secondary">Unknown</td>
+                            <td class="text-secondary">-</td>
                         }
                         else
                         {
@@ -128,7 +128,7 @@
 
                         @if (element.YearDiscovered is null)
                         {
-                            <td class="text-secondary text-center">Unknown</td>
+                            <td class="text-secondary text-center">-</td>
                         }
                         else
                         {

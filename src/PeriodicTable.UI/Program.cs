@@ -3,6 +3,7 @@ using PeriodicTable.Application.ServiceContracts;
 using PeriodicTable.Application.Services;
 using PeriodicTable.Domain.RepositoryContracts;
 using PeriodicTable.Infrastructure.Database;
+using PeriodicTable.Infrastructure.Options;
 using PeriodicTable.Infrastructure.Repositories;
 
 namespace PeriodicTable.UI
@@ -16,17 +17,21 @@ namespace PeriodicTable.UI
 			// Add services to the container.
 			builder.Services.AddControllersWithViews();
 
-			builder.Services.AddDbContext<ApplicationDbContext>(options =>
+            builder.Services.Configure<SqlServerOptions>(builder.Configuration.GetSection(SqlServerOptions.CONFIG_KEY));
+
+			var sqlServerOptions = builder.Configuration.GetSection(SqlServerOptions.CONFIG_KEY).Get<SqlServerOptions>();
+
+            builder.Services.AddDbContext<ApplicationDbContext>(options =>
 			{
-				options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+				options.UseSqlServer(sqlServerOptions.ConnectionString);
 			});
 
-			builder.Services.AddScoped<IElementsRepository, ElementsRepository>();
+            builder.Services.AddScoped<IElementsRepository, ElementsRepository>();
 			builder.Services.AddScoped<IElementsService, ElementsService>();
+
 
 			var app = builder.Build();
 
-			// Configure the HTTP request pipeline.
 			if (!app.Environment.IsDevelopment())
 			{
 				app.UseExceptionHandler("/Home/Error");
